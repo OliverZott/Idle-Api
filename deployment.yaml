@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idle-api-deployment
+  labels:
+    app: idle-api-label
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: idle-api-label
+  template:
+    metadata:
+      name: idle-api-pod
+      labels:
+        app: idle-api-label
+    spec:
+      containers:
+        - name: idle-api-container
+          image: dasmuesli/idle-api:latest
+          ports:
+            - containerPort: 80
