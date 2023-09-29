@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: idel-app-service
+  name: idle-api-service
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: idel-app
+    app: idle-api

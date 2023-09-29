@@ -1,4 +1,4 @@
-﻿# Idel-API 
+﻿# Idle-API 
 
 Just small sample api to fool around with kubernetes autoscaling on custom metrics.
 
