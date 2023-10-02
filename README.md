@@ -152,3 +152,15 @@ Source: Conversation with Bing, 29/09/2023
 (8) undefined. http://192.168.99.100:30316.
 
 
+### Access app:
+
+Based on the service configuration you've provided, your application is exposed through a service of type `LoadBalancer` on port 80. The service routes traffic to pods with the label `app: myapp`.
+
+To access your application, you need the IP address assigned to the service. If you're using a cloud provider that supports LoadBalancer services, an external IP address should be automatically assigned. You can find this by running `kubectl get svc myapp-service`.
+
+If you're running Kubernetes locally (like with Minikube or Docker Desktop), LoadBalancer services often cannot obtain an external IP address. In this case, there are a few different ways to access your application:
+
+1. **NodePort or Port Forwarding**: Expose your application on a specific port of the node, or forward a local port directly to your service.
+2. **Minikube Tunnel**: If you're using Minikube, run `minikube tunnel` in a separate terminal window. This sets up route entries on your machine so that services can be accessed as if they were running locally.
+
+Once you have the IP address (either external or local), you can access your application in the browser at `http://<ip-address>/status`. Replace `<ip-address>` with the actual IP address.
